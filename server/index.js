@@ -63,7 +63,7 @@ const state = generateCodeVerifier(16);
 const scope =
   'user-read-private user-read-email user-read-playback-state user-read-currently-playing user-modify-playback-state playlist-modify-public streaming';
 
-app.get('/login', function (req, res) {
+app.get('/auth/login', function (req, res) {
   const verifier = generateCodeVerifier(128);
   const challenge = generateCodeChallenge(verifier);
 

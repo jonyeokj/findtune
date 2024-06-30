@@ -5,7 +5,7 @@ import spotifyLogo from '@/assets/images/spotify-logo.png';
 import config from '@/config';
 
 const LoginPage = () => {
-  const loginUrl = `${config.apiBaseUrl}/login`;
+  const loginUrl = `${config.apiBaseUrl}/auth/login`;
   console.log('loginUrl:', loginUrl);
 
   return (
