@@ -17,6 +17,14 @@ body {
   text-align: center;
 }
 
+.main-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
 .standard-button {
   display: inline-block;
   background-color: var(--spotify-green);
