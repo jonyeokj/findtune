@@ -9,8 +9,9 @@ const crypto = require('crypto');
 const querystring = require('querystring');
 
 const app = express();
-const port = 8888;
-const domain = 'http://localhost:3001';
+const port = process.env.PORT || 8888;
+const domain = process.env.DOMAIN;
+const redirect_uri = process.env.REDIRECT_URI;
 
 app.use(
   cors({
@@ -58,7 +59,6 @@ function generateCodeChallenge(codeVerifier) {
 
 const client_id = process.env.CLIENT_ID;
 const client_secret = process.env.CLIENT_SECRET;
-const redirect_uri = 'http://localhost:8888/callback';
 const state = generateCodeVerifier(16);
 const scope =
   'user-read-private user-read-email user-read-playback-state user-read-currently-playing user-modify-playback-state playlist-modify-public streaming';
