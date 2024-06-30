@@ -1,0 +1,12 @@
+.empty-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-size: 1em;
+  color: #979797;
+  border-radius: 8px;
+  margin: auto;
+  user-select: none;
+}

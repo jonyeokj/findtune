@@ -1,0 +1,63 @@
+.skeleton {
+  background-color: #292929;
+  border-radius: 4px;
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-image-container {
+  padding-left: 50px;
+}
+
+.skeleton-track-image {
+  width: 300px;
+  height: 300px;
+}
+
+.skeleton-track-name {
+  width: 230px;
+  height: 24px;
+}
+
+.skeleton-artist-name {
+  width: 180px;
+  height: 18px;
+}
+
+.skeleton-controls {
+  display: flex;
+  gap: 20px;
+}
+
+.skeleton-circle-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}

@@ -1,0 +1,26 @@
+.start-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  background-color: var(--module-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.start-button-container h1 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #1db954; /* Spotify green color */
+}
+
+.steps {
+  margin-bottom: 20px;
+}
+
+.steps p {
+  margin: 10px 0;
+  font-size: 1em;
+}
