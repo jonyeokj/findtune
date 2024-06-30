@@ -461,6 +461,34 @@ app.post('/api/create-playlist', async (req, res) => {
   }
 });
 
+app.post('/api/add-track', async (req, res) => {
+  // Extract both playlistId and uri from query params
+  const { playlistId, uri } = req.query;
+
+  if (!req.session.accessToken || !playlistId || !uri) {
+    return res
+      .status(403)
+      .json({ error: 'Missing required parameters or access token' });
+  }
+
+  try {
+    const response = await axios.post(
+      `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
+      { uris: [uri] },
+      {
+        headers: {
+          Authorization: `Bearer ${req.session.accessToken}`,
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+    res.json({ message: 'Track added successfully' });
+  } catch (error) {
+    console.error('Error adding track:', error);
+    res.status(500).json({ error: 'Failed to add track to playlist' });
+  }
+});
+
 // Serve static files from the React app build directory
 app.use(express.static('../build'));
 
