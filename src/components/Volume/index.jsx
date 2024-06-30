@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import './styles.css';
+import { useAuth } from '@/contexts/AuthContext';
 import { useSpotify } from '@/contexts/SpotifyContext';
 import debounce from '@/utils/debounce';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,6 +12,7 @@ const VolumeControl = () => {
   const [volume, setVolume] = useState(50);
   const [prevVolume, setPrevVolume] = useState(50);
   const [isMuted, setIsMuted] = useState(false);
+  const { customFetch } = useAuth();
   const sliderRef = useRef(null);
 
   const updateVolume = async (newVolume) => {
@@ -20,7 +22,7 @@ const VolumeControl = () => {
     }
 
     try {
-      const response = await fetch(`${config.API_BASE_URL}/api/volume`, {
+      const response = await customFetch(`${config.API_BASE_URL}/api/volume`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

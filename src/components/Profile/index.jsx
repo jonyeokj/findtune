@@ -45,7 +45,7 @@ const Profile = ({ onClose }) => {
     try {
       await pause();
 
-      const response = await fetch(`${config.API_BASE_URL}/api/logout`, {
+      const response = await customFetch(`${config.API_BASE_URL}/api/logout`, {
         method: 'GET',
         credentials: 'include',
       });
