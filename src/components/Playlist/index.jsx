@@ -61,7 +61,9 @@ const Playlist = () => {
         await customFetch(
           `${
             config.API_BASE_URL
-          }/add-track?playlistId=${playlistId}&uri=${encodeURIComponent(uri)}`,
+          }/api/add-track?playlistId=${playlistId}&uri=${encodeURIComponent(
+            uri,
+          )}`,
           {
             method: 'POST',
             credentials: 'include',
