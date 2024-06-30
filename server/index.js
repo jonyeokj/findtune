@@ -9,7 +9,7 @@ const crypto = require('crypto');
 const querystring = require('querystring');
 
 const app = express();
-const port = process.env.PORT || 8888;
+const port = process.env.SERVER_PORT || 8888;
 const domain = process.env.DOMAIN;
 const redirect_uri = process.env.REDIRECT_URI;
 
