@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
 
   const refreshToken = useCallback(async () => {
     try {
-      const response = await fetch(`${config.API_BASE_URL}/refresh-token`, {
+      const response = await fetch(`${config.API_BASE_URL}/api/refresh-token`, {
         credentials: 'include',
       });
       if (response.ok) {
@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
   const fetchAccessToken = async () => {
     try {
       setIsLoading(true); // Set loading to true before fetching
-      const response = await fetch(`${config.API_BASE_URL}/access-token`, {
+      const response = await fetch(`${config.API_BASE_URL}/api/access-token`, {
         credentials: 'include',
       });
       if (response.ok) {

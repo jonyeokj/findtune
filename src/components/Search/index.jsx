@@ -50,7 +50,7 @@ const Search = () => {
     setHasSearched(true);
     try {
       const response = await customFetch(
-        `${config.API_BASE_URL}/search?query=${encodeURIComponent(
+        `${config.API_BASE_URL}/api/search?query=${encodeURIComponent(
           searchQuery,
         )}`,
         {

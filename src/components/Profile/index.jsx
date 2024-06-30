@@ -17,7 +17,7 @@ const Profile = ({ onClose }) => {
     const fetchProfile = async () => {
       try {
         const response = await customFetch(
-          `${config.API_BASE_URL}/spotify-profile`,
+          `${config.API_BASE_URL}/api/spotify-profile`,
           {
             credentials: 'include',
           },
@@ -45,7 +45,7 @@ const Profile = ({ onClose }) => {
     try {
       await pause();
 
-      const response = await fetch(`${config.API_BASE_URL}/logout`, {
+      const response = await fetch(`${config.API_BASE_URL}/api/logout`, {
         method: 'GET',
         credentials: 'include',
       });

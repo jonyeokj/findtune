@@ -107,7 +107,7 @@ export const SpotifyProvider = ({ children }) => {
     try {
       // Use customFetch instead of the global fetch
       const response = await customFetch(
-        `${config.API_BASE_URL}/recommendations?seed_tracks=${seedTracks}`,
+        `${config.API_BASE_URL}/api/recommendations?seed_tracks=${seedTracks}`,
         {
           credentials: 'include',
         },
@@ -144,7 +144,7 @@ export const SpotifyProvider = ({ children }) => {
         ? JSON.stringify({ uris, deviceId: tempDeviceId })
         : JSON.stringify({ deviceId: tempDeviceId });
 
-      const response = await customFetch(`${config.API_BASE_URL}/play`, {
+      const response = await customFetch(`${config.API_BASE_URL}/api/play`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -166,7 +166,7 @@ export const SpotifyProvider = ({ children }) => {
     if (!deviceId) return console.error('Device ID not available.');
 
     try {
-      const response = await customFetch(`${config.API_BASE_URL}/pause`, {
+      const response = await customFetch(`${config.API_BASE_URL}/api/pause`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -188,7 +188,7 @@ export const SpotifyProvider = ({ children }) => {
     if (!deviceId) return console.error('Device ID not available.');
 
     try {
-      await customFetch(`${config.API_BASE_URL}/volume`, {
+      await customFetch(`${config.API_BASE_URL}/api/volume`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

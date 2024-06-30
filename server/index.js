@@ -63,7 +63,7 @@ const state = generateCodeVerifier(16);
 const scope =
   'user-read-private user-read-email user-read-playback-state user-read-currently-playing user-modify-playback-state playlist-modify-public streaming';
 
-app.get('/auth/login', function (req, res) {
+app.get('/api/login', function (req, res) {
   const verifier = generateCodeVerifier(128);
   const challenge = generateCodeChallenge(verifier);
 
@@ -83,7 +83,7 @@ app.get('/auth/login', function (req, res) {
   );
 });
 
-app.get('/logout', function (req, res) {
+app.get('/api/logout', function (req, res) {
   req.session.destroy((err) => {
     if (err) {
       return res.status(500).json({ message: 'Logout failed' });
@@ -93,7 +93,7 @@ app.get('/logout', function (req, res) {
   });
 });
 
-app.get('/callback', async (req, res) => {
+app.get('/api/callback', async (req, res) => {
   const code = req.query.code || null;
   const state = req.query.state || null;
   const verifier = req.session.verifier;
@@ -148,7 +148,7 @@ app.get('/callback', async (req, res) => {
   }
 });
 
-app.get('/access-token', (req, res) => {
+app.get('/api/access-token', (req, res) => {
   if (req.session && req.session.accessToken) {
     res.json({
       accessToken: req.session.accessToken,
@@ -159,7 +159,7 @@ app.get('/access-token', (req, res) => {
   }
 });
 
-app.get('/refresh-token', async (req, res) => {
+app.get('/api/refresh-token', async (req, res) => {
   const { refreshToken } = req.session;
   if (!refreshToken) {
     return res.status(401).json({ error: 'Unauthorized - No refresh token' });
@@ -198,7 +198,7 @@ app.get('/refresh-token', async (req, res) => {
   }
 });
 
-app.get('/spotify-profile', async (req, res) => {
+app.get('/api/spotify-profile', async (req, res) => {
   if (!req.session.accessToken) {
     return res.status(403).json({ error: 'Access token is missing' });
   }
@@ -216,7 +216,7 @@ app.get('/spotify-profile', async (req, res) => {
   }
 });
 
-app.get('/search', async (req, res) => {
+app.get('/api/search', async (req, res) => {
   const { query } = req.query;
   if (!req.session.accessToken) {
     return res.status(403).json({ error: 'Access token is missing' });
@@ -240,7 +240,7 @@ app.get('/search', async (req, res) => {
   }
 });
 
-app.get('/recommendations', async (req, res) => {
+app.get('/api/recommendations', async (req, res) => {
   const { seed_tracks } = req.query;
 
   if (!req.session.accessToken || !seed_tracks) {
@@ -274,7 +274,7 @@ app.get('/recommendations', async (req, res) => {
   }
 });
 
-app.get('/currently-playing', async (req, res) => {
+app.get('/api/currently-playing', async (req, res) => {
   if (!req.session.accessToken) {
     return res.status(403).json({ error: 'Access token is missing' });
   }
@@ -308,7 +308,7 @@ app.get('/currently-playing', async (req, res) => {
   }
 });
 
-app.post('/play', async (req, res) => {
+app.post('/api/play', async (req, res) => {
   const { uris, deviceId } = req.body;
   const accessToken = req.session.accessToken;
 
@@ -346,7 +346,7 @@ app.post('/play', async (req, res) => {
   }
 });
 
-app.post('/pause', async (req, res) => {
+app.post('/api/pause', async (req, res) => {
   const { deviceId } = req.body;
   const accessToken = req.session.accessToken;
 
@@ -381,7 +381,7 @@ app.post('/pause', async (req, res) => {
   }
 });
 
-app.put('/volume', async (req, res) => {
+app.put('/api/volume', async (req, res) => {
   const { volume, deviceId } = req.body;
   const accessToken = req.session.accessToken;
 
@@ -414,7 +414,7 @@ app.put('/volume', async (req, res) => {
   }
 });
 
-app.post('/create-playlist', async (req, res) => {
+app.post('/api/create-playlist', async (req, res) => {
   const { name } = req.body;
   if (!req.session.accessToken || !req.session.userId) {
     console.log(req.session.accessToken);

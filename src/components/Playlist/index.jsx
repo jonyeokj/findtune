@@ -44,7 +44,7 @@ const Playlist = () => {
     try {
       // Create or get existing playlist
       const playlistResponse = await customFetch(
-        `${config.API_BASE_URL}/create-playlist`,
+        `${config.API_BASE_URL}/api/create-playlist`,
         {
           method: 'POST',
           body: JSON.stringify({ name: 'Findtune' }),

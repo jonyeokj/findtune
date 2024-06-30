@@ -20,7 +20,7 @@ const VolumeControl = () => {
     }
 
     try {
-      const response = await fetch(`${config.API_BASE_URL}/volume`, {
+      const response = await fetch(`${config.API_BASE_URL}/api/volume`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
