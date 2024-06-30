@@ -1,0 +1,30 @@
+.settings-modal {
+  padding: 20px;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 500px;
+  margin: auto;
+}
+
+.settings-modal h2 {
+  margin: 0 0 20px;
+  font-size: 1.5em;
+}
+
+.skip-button-settings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.skip-on-like-text {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

@@ -1,0 +1,88 @@
+.main-container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-section {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  min-width: 500px;
+}
+
+.right-section {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow: hidden;
+  min-width: 500px;
+  width: 100%;
+  gap: 12px;
+}
+
+.top-controls {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.player-container {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-button {
+  margin-left: 20px;
+}
+
+.settings-button {
+  margin-left: 4px;
+}
+
+.profile-button,
+.settings-button {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Ensures icon is centered */
+  background-color: transparent;
+  border: none;
+  color: #2ed573;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: opacity 0.3s;
+}
+
+.icon-button {
+  margin-top: 12px;
+  font-size: 1.2em;
+}
+
+.profile-button:hover,
+.settings-button:hover {
+  opacity: 0.8;
+}
+
+.search-section {
+  min-height: 270px;
+}
+
+.panel-section {
+  min-height: 214px;
+}
+
+.playlist-section {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+}
