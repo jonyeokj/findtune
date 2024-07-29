@@ -1,5 +1,7 @@
 # Findtune for Spotify
 
+https://findtune.vercel.app/login
+
 Findtune is a web application that helps you discover new music by leveraging Spotify's recommendation engine. Login with your Spotify account, select your favorite songs, and curate a playlist based on the seed tracks.
 
 ## Features
