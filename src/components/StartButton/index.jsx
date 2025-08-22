@@ -45,13 +45,13 @@ const StartButton = () => {
     <div className='start-button-container'>
       <h1>Findtune for Spotify</h1>
       <div className='steps'>
-        <p>1. Search and select seed songs.</p>
-        <p>2. Click the Play button to start.</p>
-        <p>3. Enjoy recommended music!</p>
+        <p>Spotify has deprecated the Recommendations API.</p>
+        <p>You can no longer generate new recommendations with seed songs.</p>
+        <p>Thank you for using this web app.</p>
       </div>
-      <button onClick={handlePlayClick} className='standard-button'>
+      {/* <button onClick={handlePlayClick} className='standard-button'>
         Play
-      </button>
+      </button> */}
       {modalVisible && <Modal content={modalContent} onClose={closeModal} />}
     </div>
   );

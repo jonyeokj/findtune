@@ -472,7 +472,7 @@ app.post('/api/add-track', async (req, res) => {
   }
 
   try {
-    const response = await axios.post(
+    const res = await axios.post(
       `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
       { uris: [uri] },
       {
